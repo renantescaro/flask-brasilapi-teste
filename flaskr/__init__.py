@@ -1,5 +1,8 @@
 from flask import Flask
 from flaskr.controllers.inicial_ctrl import bp as bp_inicial
+from flaskr.controllers.feriado_ctrl import bp as bp_feriado
+from flaskr.controllers.banco_ctrl import bp as bp_banco
+
 
 def create_app(test_config=None):
     app = Flask(
@@ -16,4 +19,6 @@ def create_app(test_config=None):
 
     # adicionar rotas
     app.register_blueprint(bp_inicial)
+    app.register_blueprint(bp_feriado)
+    app.register_blueprint(bp_banco)
     return app
