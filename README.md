@@ -1,27 +1,43 @@
-#### estrutura básica Flask para testar a brasilapi
-* Link da brasilapi
-* https://github.com/BrasilAPI/BrasilAPI
+<h3>estrutura básica Flask para testar a brasilapi</h3>
+<br>
+
+<a href="https://github.com/BrasilAPI/BrasilAPI">Link da brasilapi</a>
+<br>
+
+<ul>
+    <b>Instalar todas as dependências</b>
+    <li>
+        <blockquote>
+            pip install -r requirements.txt
+        </blockquote>
+    </li>
+</ul>
 
 <br>
 
-#### Instalar todas as dependências
-* pip install -r requirements.txt
-
+<ul>
+    <b>Instalar dependências manualmente</b>
+    <li>flask==1.1.2</li>
+    <li>waitress==2.0.0</li>
+    <li>python-dotenv==0.17.0</li>
+</ul>
 <br>
 
-#### Instalar dependências manualmente
-* flask==1.1.2
-* waitress==2.0.0
-* python-dotenv==0.17.0
-
+<ul>
+    <b>Configurações</b>
+    <li>
+        arquivo .env
+    </li>
+</ul>
 <br>
 
-#### Configurações
-* arquivo .env
-
-<br>
-
-#### Executar aplicação
-* > python run.py
+<ul>
+    <b>Executar Aplicação</b>
+    <li>
+        <blockquote>
+            python run.py
+        </blockquote>
+    </li>
+</ul>
 
 <br>
