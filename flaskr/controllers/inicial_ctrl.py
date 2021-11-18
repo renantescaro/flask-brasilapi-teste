@@ -1,10 +1,10 @@
 from flask import render_template, jsonify, Blueprint
-from datetime import date, timedelta
 
 bp = Blueprint(
     'inical',
     __name__,
     template_folder='templates' )
+
 
 class LogCtrl:
     @bp.route('/', methods=['GET'])
