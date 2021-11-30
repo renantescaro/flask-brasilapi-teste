@@ -1,0 +1,76 @@
+<!-- Consulta de DDD -->
+
+
+{% extends "template.html" %}
+{% block conteudo %}
+    <link rel="stylesheet" href="/static/css/tabulator_bootstrap4.css">
+    <style>
+        .linha{
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: row;
+            justify-content: center;
+        }
+    </style>
+
+    <br>
+    <div class="linha">
+        <div style="width: 40px;">
+            <label style="vertical-align: middle;">DDD</label>
+        </div>
+        <div style="width: 200px;">
+            <input id="txtDdd" type="number" class="form-control">
+        </div>
+        <div style="width: 150px;">
+            <button id="btnBuscar" type="button" class="btn btn-primary">
+                Buscar
+            </button>
+        </div>
+    </div>
+    <br>
+
+    <div id="tblListagem"></div>
+    
+    <script src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js"></script>
+    <script src="/static/js/tabulator.min.js"></script>
+    <script>
+        let btnBuscar = document.getElementById('btnBuscar')
+        let txtDdd = document.getElementById('txtDdd')
+        btnBuscar.onclick = function(){
+            if(txtDdd.value != ''){
+                let get = new XMLHttpRequest()
+                get.open('GET', 'ddds/'+txtDdd.value)
+                console.log('ddds/'+txtDdd.value)
+                get.send()
+                get.onreadystatechange = function(){
+                    if(get.readyState == 4 && get.status == 200){
+
+                        var table = new Tabulator("#tblListagem", {
+                            ajaxURL:'ddds/'+txtDdd.value,
+                            ajaxConfig:{
+                                method:"GET",
+                                headers: {
+                                    "Content-type": 'application/json; charset=utf-8',
+                                },
+                            },
+                            layout:"fitColumns",
+                            pagination:"local",
+                            height:window.screen.height-250,
+                            movableColumns:true,
+                            columns:[
+                                {title:"Cidade", field:"cidade", width:400, headerFilter:"input",
+                                    bottomCalc:"count", bottomCalcFormatter:"plaintext", 
+                                        bottomCalcFormatterParams:function(cell){
+                                        cell._cell.value = 'Total ' + cell._cell.value
+                                    }
+                                },
+                                {title:"UF", field:"estado", width:80, headerFilter:"input"},
+                            ],
+                        })
+                    }
+                }
+            }
+        }
+
+    </script>
+{% endblock %}

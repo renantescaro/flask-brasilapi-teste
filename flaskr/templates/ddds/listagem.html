@@ -1,0 +1,39 @@
+<!-- Listagem de DDDs -->
+
+
+
+<div id="dvDados" style="display: none;">
+    {{ dados }}
+</div>
+<div>
+    <div style="margin-left:10px; padding:0px; width:98%">
+        <div class="row">
+            <div class="col-6 col-md-1">
+                <button id="downloadXlsx" class="btn btn-success btn-sm">
+                    Excel
+                    <i class="fas fa-file-excel"></i>
+                </button>
+            </div>
+            <div class="col-6 col-md-4">
+                <div style="text-align: center;">
+                    <h4>{{titulo}}</h4>
+                </div>
+            </div>
+        </div>
+        <div id="tblListagem"></div>
+    </div>
+</div>
+
+
+<script>
+    
+
+
+    // EXCEL
+    document.getElementById("downloadXlsx").addEventListener("click", function(){
+        table.download(
+            "xlsx", "listagem_ddds_brasil.xlsx", 
+            {sheetName:"Listagem de DDDs no Brasil"}
+        )
+    })
+</script>
