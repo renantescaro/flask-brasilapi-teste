@@ -8,26 +8,22 @@
         {{ dados }}
     </div>
     <br>
-    <div class="row" style="width: 99%;">
-        <div class="col-6 col-md-1" >
-            <button id="btnPesquisar" style="width: 113px;" class="btn btn-primary btn-sm">
-                Pesquisar
-                <i class="fas fa-binoculars"></i>
-            </button>
-        </div>
-        <div class="col-6 col-md-1">
-            <button id="downloadXlsx" class="btn btn-success btn-sm">
-                Excel
-                <i class="fas fa-file-excel"></i>
-            </button>
-        </div>
-        <div class="col-6 col-md-4">
-            <div style="text-align: center;">
-                <h4>{{titulo}}</h4>
+    <div style="margin-left:10px; padding:0px; width:98%">
+        <div class="row">
+            <div class="col-6 col-md-1">
+                <button id="downloadXlsx" class="btn btn-success btn-sm">
+                    Excel
+                    <i class="fas fa-file-excel"></i>
+                </button>
+            </div>
+            <div class="col-6 col-md-4">
+                <div style="text-align: center;">
+                    <h4>{{titulo}}</h4>
+                </div>
             </div>
         </div>
+        <div id="tblListagem"></div>
     </div>
-    <div style="margin-left:10px; padding:0px; width:99%" id="tblLogs"></div>
 
     <script src="https://oss.sheetjs.com/sheetjs/xlsx.full.min.js" 
         type="text/javascript"></script>
@@ -37,7 +33,7 @@
         let dataFinal  = document.getElementById("dataFinal")
         let altura     = window.screen.height-250
 
-        var table = new Tabulator("#tblLogs", {
+        var table = new Tabulator("#tblListagem", {
             layout:"fitColumns",
             pagination:"local",
             height:altura,
@@ -53,14 +49,6 @@
                 {title:"Nome", field:"name", width:250, headerFilter:"input"},
                 {title:"Tipo", field:"type", width:145, headerFilter:"input"},
             ],
-        })
-
-
-        // BUSCA
-        document.getElementById("btnPesquisar").addEventListener("click", function(){
-            if( dataInicio.value.length > 0 || dataFinal.value.length > 0 ){
-                window.location.href = '/log/'+dataInicio.value+'/'+dataFinal.value
-            }
         })
 
 
