@@ -18,8 +18,8 @@
 <ul>
     <b>Ou usar ambiente virtual</b>
     <blockquote>
-        python -m venv venv
-        venv\Scripts\activate.bat
+        python -m venv venv<br>
+        venv\Scripts\activate.bat<br>
         pip install -r requirements.txt
     </blockquote>
 </ul>
