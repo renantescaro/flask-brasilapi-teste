@@ -13,15 +13,17 @@
         </blockquote>
     </li>
 </ul>
-
 <br>
 
 <ul>
-    <b>Instalar dependências manualmente</b>
-    <li>flask==1.1.2</li>
-    <li>waitress==2.0.0</li>
-    <li>python-dotenv==0.17.0</li>
+    <b>Ou usar ambiente virtual</b>
+    <blockquote>
+        python -m venv venv
+        venv\Scripts\activate.bat
+        pip install -r requirements.txt
+    </blockquote>
 </ul>
+
 <br>
 
 <ul>
